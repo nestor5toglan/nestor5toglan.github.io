@@ -47,7 +47,7 @@ SECRET_KEY = "SECRET_KEY"
 #DEBUG = config("DEBUG", default=False, cast=bool)
 DEBUG=False
 
-ALLOWED_HOSTS = ['help-for-bug-blog.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['nestor5toglangithubio-production.up.railway.app', 'localhost', '127.0.0.1']
 
 
 # Application definition
