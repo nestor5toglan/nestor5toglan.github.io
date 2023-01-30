@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div style=" padding-top: 2em; margin-top: 2em;position: center;">
+<!--<div style="position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%); padding-top: 10em;padding-bottom: 7em;color:aliceblue;">-->
+    <div class="article-entry" style="color:aliceblue; ">
+        <h2> {{ object.title }}</h2>
+
+        <p> Par {{ object.author }} | {{ object.date }}</p>
+        <div class="col-md-12" style="background-color:rgba(255, 156, 7, 0.61) ; padding-top: 2em; margin-top: 1.5em;">
+        <p> {{ object.body|safe }}</p>
+        </div>
+
+    </div>
+    <p style="padding-left:45em;"><a href="{% url 'article_edit' article.pk %}" class="btn btn-primary">EDITER</a>|
+        <a href="{% url 'article_delete' article.pk %}" class="btn btn-danger">SUPPRIMER</a>    
+        
+    </p>
+  <p style="color:rgb(5, 255, 59) ;">Retour à <a href="{% url 'article_list' %}" class="btn btn-outline-warning">TOUS les Articles</a></p><br/>
+    
+</div>
+
+
+{% endblock content %}

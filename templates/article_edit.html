@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<div style="position: absolute;top: 30%;left: 50%;transform: translate(-50%,-50%); padding-top: 30em;padding-bottom: 7em;color:aliceblue;">
+    <h1 style="font-size: 1.5em;" >Editer</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.media }}
+
+        {{ form|crispy }}
+        <button class="btn btn-info ml-2" type="submit"> Mettre à jour <button>
+
+    </form>
+</div>
+{% endblock content %}

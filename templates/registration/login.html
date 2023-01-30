@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %} LOGIN {% endblock title %}
+
+{% block content %}
+<div style="position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%); color: aliceblue;">
+    <h2 style="font-size:1.5em ;"> Se connecter</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-success ml-2" type="submit"> Se connecter</button>
+    </form>
+    <p>Mot de passe Oublié? Cliquer "reset password" pour rénitialiser et définir un nouveau mot de passe à travers un lien qui vous sera envoyé! </p>
+    <button class="btn btn-danger" type="" > <a href="{% url 'password_reset' %}" style="color:aliceblue ;"><strong>reset password</strong></a></button>
+
+</div>
+{% endblock content %}

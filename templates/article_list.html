@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %} Articles  {% endblock title %}
+
+{% block content %}
+
+
+ 
+
+<h3 style="color:red ;">Articles de Bug et solutions|Astuces & Méthodes|</h3>
+ <section style="background-color:rgb(0, 0, 0) ; margin-top:4em">
+    {% for article in object_list %}
+    <div class="col-sm-12 center" style="padding-left:1% ; padding-top: 2%;">
+        <div class="card" style="position: center;">
+            <div class="card-header">
+                <span class="font-weight-bold" style="color:blue ;"> {{ article.title }}</span> &middot;
+                <span class="text-muted"> Par {{ article.author }} | {{ article.date }}</span>
+
+            </div>
+            <div class="col-md-8">
+                
+                {{ article.body|safe }}
+            </div>
+            <div class="card-footer text-center text-muted">
+                <button type="" class="btn btn-primary"><a href="{% url 'article_edit' article.pk  %}" style="color:aliceblue ;"><strong>Editer</strong></a></button> | <button type="" class="btn btn-danger"> <a href="{% url 'article_delete' article.pk %}" style="color:aliceblue ;"><strong> Supprimer </strong> </a></button> |
+                <button type="" class="btn btn-success"><a href="{% url 'create_comment' article.pk %}" style="color:aliceblue ;"><strong> Commenter</strong></a></button>
+            </div>
+        
+           
+            <div class="col-md-8" >
+                
+                 {% for comment in article.comments.all %}
+                <p style="color: rgb(255, 81, 0);" class="dropdown">
+                    <span class="font-weight-bold" style="color:firebrick ; font-size: 1em">
+                        <!--  <small style="margin-top:-2em ; margin-left: 0.15em;">like</small>-->
+                          Commentaire:   {{ comment.author }} &middot;
+
+                    </span>
+                    {{ comment|safe }}
+
+                </p>
+           
+                
+            
+            {% endfor %}
+                      
+            </div>
+        </div>
+        </div>
+    </div>
+        <br />
+    {% endfor %}
+    
+</section>
+<br/>
+<br/>
+
+
+
+    
+    
+{% endblock content %}
